@@ -69,9 +69,9 @@ ggplot(data=demand, aes(x=amounts, y=Likelihood)) +
 ```
 ```{r}
 # Define demand model
-x <- seq(0, 3000, 25)
+x <- seq(1, 3000, 91)
 y <- demand$Likelihood
-model <- nls(y~q*10^(2*(exp(-a*q*x)-1)))
+model <- nls(y~q*10^(2*(exp(-a*q*x)-1)), start=list(q=100, a=0.5))
 # Get estimated goodness of fit
 cor(y, predict(model))
 ```
