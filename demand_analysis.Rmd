@@ -1,0 +1,107 @@
+---
+title: "Demand_for_Certification"
+author: "David J. Cox"
+date: "8/24/2020"
+output: html_document
+---
+## Demand analysis for certification in Ontario
+```{r setup, include=False}
+install.packages('knitr', dependencies = TRUE)
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+## Install packages we'll need
+library(tidyverse)
+library(ggplot2)
+library(plyr)
+library(dplyr)
+```
+```{r}
+## Set the working drive and read in the data. 
+setwd("/Users/davidjcox/Dropbox/Projects/CurrentProjectManuscripts/Empirical/PersonalFun/Demand for Certification/")
+raw_data <- read.csv('Raw_Data.csv')
+df <- cbind(raw_data)
+df
+```
+```{r}
+##Print list of columns 
+colnames(df)
+```
+
+```{r}
+## Fill all NAs for likelihood responses with 0
+## "Likelihood of paying X_amount" columns
+slice <- df[,18:50]
+slice[is.na(slice)] <- 0
+df[,18:50] <- slice
+
+## Hours accrue cols
+slice <- df[,52:84]
+slice[is.na(slice)] <- 0
+df[,52:84] <- slice
+```
+
+```{r}
+## Print unique values per column
+sapply(df, function(x) unique(x))
+```
+```{r}
+amounts = c(0, 25, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700, 2800, 2900, 3000)
+slice <- df[,18:50]
+med_vals <- c(apply(slice, 2, median))
+demand <- data.frame(amounts, med_vals)
+names(demand) <- c('Amount', 'Likelihood')
+demand
+```
+
+```{r}
+ggplot(data=demand, aes(x=amounts, y=Likelihood)) +
+  geom_point(size=3.5) +
+  ## Data
+  scale_x_continuous(trans='log10') +
+  scale_y_continuous(trans='log10') +
+  ## Make it look good
+  labs(x="Amount of Certification", y="Likelihood of Paying\n0=Wouldn't Pay, 100=Definitely Pay")
+```
+```{r}
+# Define demand model
+x <- seq(0, 3000, 25)
+y <- demand$Likelihood
+model <- nls(y~q*10^(2*(exp(-a*q*x)-1)))
+# Get estimated goodness of fit
+cor(y, predict(model))
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
