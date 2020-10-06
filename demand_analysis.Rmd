@@ -17,6 +17,7 @@ library(ggplot2)
 library(plyr)
 library(dplyr)
 library(modelr)
+library(nlmrt)
 ```
 
 ```{r}
@@ -75,15 +76,28 @@ grid <- expand.grid(
 # Data to be fit
 x <- demand$Amount
 y <- demand$Likelihood
+data = data.frame(x, y)
 ```
 ```{r}
 # Define model
-demand_model <- log(y)~k*(exp(-a*q*x)-1) + log(q)
-model <- nls(demand_model, data=demand, start=list(q=95, k=2, a=0.01))
+demand_mod = log(y)~log(q)+k*(exp(-a*q*x)-1)
+start_vals <- c(q=95, k=2, a=0.01)
+model_fit <- nlxb(demand_mod, start=start_vals, trace=FALSE, data=data)
+print(model_fit)
 ```
 ```{r}
-# Get estimated goodness of fit
-cor(y, predict(model))
+model <- wrapnls(demand_mod, data=data, start=start_vals)
+summary(model)
+```
+```{r}
+data$predicted <- predict(model)
+# Plot it
+ggplot(data=data, aes(x=x, y=y)) +
+  geom_point(size=3.5) +
+  geom_line(aes(y=predicted), size=1) +
+  scale_x_continuous(trans='log10') +
+  scale_y_continuous(trans='log10') +
+  labs(x="Amount of Certification", y="Likelihood of Paying\n0=Wouldn't Pay, 100=Definitely Pay")
 ```
 
 
