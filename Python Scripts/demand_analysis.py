@@ -46,7 +46,6 @@ def demand(x, alpha):
     return 100*10**(3*np.exp(-alpha*100*x))
 
 #%% Plot distributions of data
-
 for i in list(cost_df):
     fig, ax = plt.subplots(figsize=(20, 20))
     plt.hist(x=cost_df[i], color='k', alpha=0.8)
@@ -56,7 +55,26 @@ for i in list(cost_df):
     plt.yticks(fontsize=16)
     plt.title(i, fontsize=30)
     plot_name = plt.savefig('%s_hist.png' %i, bbox_inches='tight')
-    plt.show()        
+    plt.show()     
+
+#%% Reshape data to long form for swarmplots
+cost_df_long = cost_df.stack()
+cost_df_long = cost_df_long.reset_index()
+cost_df_long.columns = ['participant', 'cost', 'likelihood']
+cost_df_long.to_csv('all_data_long.csv')
+
+cost = [0, 25, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, \
+        1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700, 2800, 2900, 3000]
+
+#%% Plot swarmplots
+fig, ax = plt.subplots(figsize=(30, 20))
+sns.swarmplot(x=cost_df_long['cost'], y=cost_df_long['likelihood'], color='k')
+plt.xlabel('Cost in Canadian Dollars', fontsize=60, labelpad=(20))
+plt.ylabel('Likelihood of Paying', fontsize=60, labelpad=(20))
+plt.xticks(ticks=list(range(len(cost))), labels=cost, fontsize=24, rotation=90)
+plt.yticks(fontsize=30)
+plot_name = plt.savefig('swarmplots_cost.png', bbox_inches='tight')
+plt.show()  
 
 #%% Fit demand equation to all data
 
