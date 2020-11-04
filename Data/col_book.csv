@@ -1,0 +1,198 @@
+﻿col_name,question_text,qualtrics_num
+Start_Date,Start Date,StartDate
+End_Date,End Date,EndDate
+IP_Address,IP Address,IPAddress
+Duration_seconds,Duration (in seconds),Duration (in seconds)
+ID,Response ID,ResponseId
+consent,"Informed Consent 
+
+ 
+
+Project Title: Behavioral Economic Analysis of Demand for Regulation of Behavior Analysis in Ontario to Inform Public Policy
+
+ Principal Investigator: Albert Malkin, M.A., BCBA
+
+Assistant Professor Department of Applied Disability
+Studies, Brock University
+
+905-688-5550 x6653; amalkin@brocku.ca
+
+ 
+
+Co-investigators:
+
+Karl Gunnarsson, M.Sc., BCBA, 
+
+Director of Brain Injury Behaviour Service Program and
+Development, West Park Healthcare Centre
+
+Email: karl.gunnarsson@westpark.org  
+
+ 
+
+Kendra Thomson, PhD, BCBA-D
+
+Associate Professor, Department of Applied Disability
+Studies, Brock University
+
+Email: kthomson@brocku.ca 
+
+
+ 
+
+INVITATION
+
+You are invited to participate in a study that involves research. The purpose of this study is to evaluate the amount professionals in behaviour analysis in Ontario are willing to pay for potential fees related to participating in a regulated health profession. 
+
+ 
+
+ 
+
+WHAT‚ÄôS INVOLVED
+
+As a participant, you will be asked to anonymously provide consent and complete an online questionnaire. You will be asked about your professional credentials, income, and education and other demographic questions. Subsequently, you will be provided with a series of hypothetical questions regarding your likelihood of opting into fees related to participating in the regulated health profession of behavior analysis. In the case that you are not certified in the field, you will be asked to fill out an additional questionnaire, indicating the number of hours you would be willing to allocate to becoming part of the regulated health profession. Participation will take approximately ten minutes of your time.
+
+ 
+
+ 
+
+POTENTIAL BENEFITS AND RISKS
+
+Possible benefits of participation include providing information regarding the value of regulation of the field of behaviour analysis in the province of Ontario. The results may inform policy makers regarding the potential uptake of practitioners in a regulated body, and thus, provide information regarding the financial feasibility of various regulation models. There are no known or anticipated risks associated with participation in this study.
+
+ 
+
+ 
+
+CONFIDENTIALITY
+
+ 
+
+All information you provide is considered confidential and anonymous; your name will not be included or, in any other way, associated with the data collected in the study. No identifying information will be gathered at any point during this study. 
+
+ 
+
+Data collected during this study will be stored on GitHub.Data will be kept for 7 years, after which time the data will be deleted.
+
+ 
+
+Access to this data will be available publicly.
+
+ 
+
+
+
+VOLUNTARY PARTICIPATION
+
+Participation in this study is voluntary. If you wish, you may decline to answer any questions or participate in any component of the study. However, if you do not answer all of the questions, your survey will not be included in the study. Further, you may decide to withdraw from this study at any time and may do so without any penalty or loss of benefits to which you are entitled. You may close your browser or submit an incomplete questionnaire at any time, to withdraw your consent. 
+
+ 
+
+ 
+
+PUBLICATION OF RESULTS
+
+Results of this study may be published in professional journals and presented at conferences. Feedback about this study will be available by request from amalkin@brocku.cawithin approximately one month of completion of data collection.Results will also be posted on social media upon completion of analysis within approximately one month. Results will be posted on Facebook, Twitter, LinkedIn, and Research Gate.
+
+ 
+
+ 
+
+CONTACT INFORMATION AND ETHICS CLEARANCE
+
+If you have any questions about this study or require further information, please contact Albert Malkin using the contact information provided above. This study has been reviewed and received ethics clearance through the Research Ethics Board at Brock University 19-058. If you have any comments or concerns about your rights as a research participant, please contact the Research Ethics Office at (905) 688-5550 Ext. 3035, reb@brocku.ca.
+
+ 
+
+ 
+
+Thank you for your assistance in this project. Please keep a copy of this form for your records. 
+
+ 
+
+ 
+
+ 
+
+CONSENT FORM
+
+By checking the box below, you indicate that: I agree to participate in this study described above. I have made this decision based on the information I have read in the Information-Consent Letter. I have had the opportunity to receive any additional details I wanted about the study and understand that I may ask questions in the future.",Consent
+certification_status,Please indicate your certification Status: - Selected Choice,Q10
+cert_status_other_text,Please indicate your certification Status: - Other - Text,Q10_5_TEXT
+education,What is your level of education? - Selected Choice,Q11
+education_diploma_type,What is your level of education? - College Diploma: (please indicate specific Diploma) - Text,Q11_1_TEXT
+education_other_text,What is your level of education? - Other - Text,Q11_5_TEXT
+age,Please indicate your age:,Q12
+sex,Gender: - Selected Choice,Q13
+race_ethnic,Racial or Ethnic background: - Selected Choice,Q19
+race_ethnic_other_text,Racial or Ethnic background: - Other: - Text,Q19_12_TEXT
+region,Please indicate the region you live in:,Q20
+income,Please indicate your annual income within the following ranges:,Q21
+cost_0,Imagine that regulation for behavior analysis has been approved in Ontario. How likely are you to spend the following amount of money to be part of the regulatory body per year? - Would you opt-in to a regulatory body that costs $0,1_1
+cost_25,Imagine that regulation for behavior analysis has been approved in Ontario. How likely are you to spend the following amount of money to be part of the regulatory body per year? - Would you opt-in to a regulatory body that costs $25,2_1
+cost_50,Imagine that regulation for behavior analysis has been approved in Ontario. How likely are you to spend the following amount of money to be part of the regulatory body per year? - Would you opt-in to a regulatory body that costs $50,Q71_1
+cost_100,Imagine that regulation for behavior analysis has been approved in Ontario. How likely are you to spend the following amount of money to be part of the regulatory body per year? - Would you opt-in to a regulatory body that costs $100,4_1
+cost_200,Imagine that regulation for behavior analysis has been approved in Ontario. How likely are you to spend the following amount of money to be part of the regulatory body per year? - Would you opt-in to a regulatory body that costs $200,5_1
+cost_300,Imagine that regulation for behavior analysis has been approved in Ontario. How likely are you to spend the following amount of money to be part of the regulatory body per year? - Would you opt-in to a regulatory body that costs $300,Q36_1
+cost_400,Imagine that regulation for behavior analysis has been approved in Ontario. How likely are you to spend the following amount of money to be part of the regulatory body per year? - Would you opt-in to a regulatory body that costs $400,Q38_1
+cost_500,Imagine that regulation for behavior analysis has been approved in Ontario. How likely are you to spend the following amount of money to be part of the regulatory body per year? - Would you opt-in to a regulatory body that costs $500,Q42_1
+cost_600,Imagine that regulation for behavior analysis has been approved in Ontario. How likely are you to spend the following amount of money to be part of the regulatory body per year? - Would you opt-in to a regulatory body that costs $600,Q43_1
+cost_700,Imagine that regulation for behavior analysis has been approved in Ontario. How likely are you to spend the following amount of money to be part of the regulatory body per year? - Would you opt-in to a regulatory body that costs $700,Q44_1
+cost_800,Imagine that regulation for behavior analysis has been approved in Ontario. How likely are you to spend the following amount of money to be part of the regulatory body per year? - Would you opt-in to a regulatory body that costs $800,Q45_1
+cost_900,Imagine that regulation for behavior analysis has been approved in Ontario. How likely are you to spend the following amount of money to be part of the regulatory body per year? - Would you opt-in to a regulatory body that costs $900,Q46_1
+cost_1000,Imagine that regulation for behavior analysis has been approved in Ontario. How likely are you to spend the following amount of money to be part of the regulatory body per year? - Would you opt-in to a regulatory body that costs $1000,Q47_1
+cost_1100,Imagine that regulation for behavior analysis has been approved in Ontario. How likely are you to spend the following amount of money to be part of the regulatory body? - Would you opt-in to a regulatory body that costs $1100,Q48_1
+cost_1200,Imagine that regulation for behavior analysis has been approved in Ontario. How likely are you to spend the following amount of money to be part of the regulatory body per year? - Would you opt-in to a regulatory body that costs $1200,Q49_1
+cost_1300,Imagine that regulation for behavior analysis has been approved in Ontario. How likely are you to spend the following amount of money to be part of the regulatory body per year? - Would you opt-in to a regulatory body that costs $1300,Q50_1
+cost_1400,Imagine that regulation for behavior analysis has been approved in Ontario. How likely are you to spend the following amount of money to be part of the regulatory body per year? - Would you opt-in to a regulatory body that costs $1400,Q51_1
+cost_1500,Imagine that regulation for behavior analysis has been approved in Ontario. How likely are you to spend the following amount of money to be part of the regulatory body per year? - Would you opt-in to a regulatory body that costs $1500,Q52_1
+cost_1600,Imagine that regulation for behavior analysis has been approved in Ontario. How likely are you to spend the following amount of money to be part of the regulatory body per year? - Would you opt-in to a regulatory body that costs $1600,Q53_1
+cost_1700,Imagine that regulation for behavior analysis has been approved in Ontario. How likely are you to spend the following amount of money to be part of the regulatory body per year? - Would you opt-in to a regulatory body that costs $1700,Q54_1
+cost_1800,Imagine that regulation for behavior analysis has been approved in Ontario. How likely are you to spend the following amount of money to be part of the regulatory body per year? - Would you opt-in to a regulatory body that costs $1800,Q55_1
+cost_1900,Imagine that regulation for behavior analysis has been approved in Ontario. How likely are you to spend the following amount of money to be part of the regulatory body per year? - Would you opt-in to a regulatory body that costs $1900,Q56_1
+cost_2000,Imagine that regulation for behavior analysis has been approved in Ontario. How likely are you to spend the following amount of money to be part of the regulatory body per year? - Would you opt-in to a regulatory body that costs $2000,Q57_1
+cost_2100,Imagine that regulation for behavior analysis has been approved in Ontario. How likely are you to spend the following amount of money to be part of the regulatory body per year? - Would you opt-in to a regulatory body that costs $2100,Q58_1
+cost_2200,Imagine that regulation for behavior analysis has been approved in Ontario. How likely are you to spend the following amount of money to be part of the regulatory body per year? - Would you opt-in to a regulatory body that costs $2200,Q59_1
+cost_2300,Imagine that regulation for behavior analysis has been approved in Ontario. How likely are you to spend the following amount of money to be part of the regulatory body per year? - Would you opt-in to a regulatory body that costs $2300,Q60_1
+cost_2400,Imagine that regulation for behavior analysis has been approved in Ontario. How likely are you to spend the following amount of money to be part of the regulatory body per year? - Would you opt-in to a regulatory body that costs $2400,Q61_1
+cost_2500,Imagine that regulation for behavior analysis has been approved in Ontario. How likely are you to spend the following amount of money to be part of the regulatory body per year? - Would you opt-in to a regulatory body that costs $2500,Q62_1
+cost_2600,Imagine that regulation for behavior analysis has been approved in Ontario. How likely are you to spend the following amount of money to be part of the regulatory body per year? - Would you opt-in to a regulatory body that costs $2600,Q63_1
+cost_2700,Imagine that regulation for behavior analysis has been approved in Ontario. How likely are you to spend the following amount of money to be part of the regulatory body per year? - Would you opt-in to a regulatory body that costs $2700,Q64_1
+cost_2800,Imagine that regulation for behavior analysis has been approved in Ontario. How likely are you to spend the following amount of money to be part of the regulatory body per year? - Would you opt-in to a regulatory body that costs $2800,Q65_1
+cost_2900,Imagine that regulation for behavior analysis has been approved in Ontario. How likely are you to spend the following amount of money to be part of the regulatory body per year? - Would you opt-in to a regulatory body that costs $2900,Q66_1
+cost_3000,Imagine that regulation for behavior analysis has been approved in Ontario. How likely are you to spend the following amount of money to be part of the regulatory body? - Would you opt-in to a regulatory body that costs $3000,Q67_1
+max_money,Imagine that regulation for behavior analysis has been approved in Ontario. What is the maximum amount of money you are 100% likely to be part of the regulatory body?,Q160
+accrue_0_hours,Imagine that regulation for behavior analysis has been approved. How likely are you to spend the following amount of hours accruing the required experience and oversight to qualify to be part of the regulation body? - Would you spend 0 hours?,Q80_1
+accrue_25_hours,Imagine that regulation for behavior analysis has been approved. How likely are you to spend the following amount of hours accruing the required experience and oversight to qualify to be part of the regulation body? - Would you spend 25 hours?,Q157_1
+accrue_50_hours,Imagine that regulation for behavior analysis has been approved. How likely are you to spend the following amount of hours accruing the required experience and oversight to qualify to be part of the regulation body? - Would you spend 50 hours?,Q156_1
+accrue_100_hours,Imagine that regulation for behavior analysis has been approved. How likely are you to spend the following amount of hours accruing the required experience and oversight to qualify to be part of the regulation body? - Would you spend 100 hours?,Q155_1
+accrue_200_hours,Imagine that regulation for behavior analysis has been approved. How likely are you to spend the following amount of hours accruing the required experience and oversight to qualify to be part of the regulation body? - Would you spend 200 hours?,Q82_1
+accrue_300_hours,Imagine that regulation for behavior analysis has been approved. How likely are you to spend the following amount of hours accruing the required experience and oversight to qualify to be part of the regulation body? - Would you spend 300 hours?,Q83_1
+accrue_400_hours,Imagine that regulation for behavior analysis has been approved. How likely are you to spend the following amount of hours accruing the required experience and oversight to qualify to be part of the regulation body? - Would you spend 400 hours?,Q84_1
+accrue_500_hours,Imagine that regulation for behavior analysis has been approved. How likely are you to spend the following amount of hours accruing the required experience and oversight to qualify to be part of the regulation body? - Would you spend 500 hours?,Q85_1
+accrue_600_hours,Imagine that regulation for behavior analysis has been approved. How likely are you to spend the following amount of hours accruing the required experience and oversight to qualify to be part of the regulation body? - Would you spend 600 hours?,Q86_1
+accrue_700_hours,Imagine that regulation for behavior analysis has been approved. How likely are you to spend the following amount of hours accruing the required experience and oversight to qualify to be part of the regulation body? - Would you spend 700 hours?,Q87_1
+accrue_800_hours,Imagine that regulation for behavior analysis has been approved. How likely are you to spend the following amount of hours accruing the required experience and oversight to qualify to be part of the regulation body? - Would you spend 800 hours?,Q88_1
+accrue_900_hours,Imagine that regulation for behavior analysis has been approved. How likely are you to spend the following amount of hours accruing the required experience and oversight to qualify to be part of the regulation body? - Would you spend 900 hours?,Q89_1
+accrue_1000_hours,Imagine that regulation for behavior analysis has been approved. How likely are you to spend the following amount of hours accruing the required experience and oversight to qualify to be part of the regulation body? - Would you spend 1000 hours?,Q90_1
+accrue_1100_hours,Imagine that regulation for behavior analysis has been approved. How likely are you to spend the following amount of hours accruing the required experience and oversight to qualify to be part of the regulation body? - Would you spend 1100 hours?,Q91_1
+accrue_1200_hours,Imagine that regulation for behavior analysis has been approved. How likely are you to spend the following amount of hours accruing the required experience and oversight to qualify to be part of the regulation body? - Would you spend 1200 hours?,Q92_1
+accrue_1300_hours,Imagine that regulation for behavior analysis has been approved. How likely are you to spend the following amount of hours accruing the required experience and oversight to qualify to be part of the regulation body? - Would you spend 1300 hours?,Q93_1
+accrue_1400_hours,Imagine that regulation for behavior analysis has been approved. How likely are you to spend the following amount of hours accruing the required experience and oversight to qualify to be part of the regulation body? - Would you spend 1400 hours?,Q94_1
+accrue_1500_hours,Imagine that regulation for behavior analysis has been approved. How likely are you to spend the following amount of hours accruing the required experience and oversight to qualify to be part of the regulation body? - Would you spend 1500 hours?,Q95_1
+accrue_1600_hours,Imagine that regulation for behavior analysis has been approved. How likely are you to spend the following amount of hours accruing the required experience and oversight to qualify to be part of the regulation body? - Would you spend 1600 hours?,Q96_1
+accrue_1700_hours,Imagine that regulation for behavior analysis has been approved. How likely are you to spend the following amount of hours accruing the required experience and oversight to qualify to be part of the regulation body? - Would you spend 1700 hours?,Q98_1
+accrue_1800_hours,Imagine that regulation for behavior analysis has been approved. How likely are you to spend the following amount of hours accruing the required experience and oversight to qualify to be part of the regulation body? - Would you spend 1800 hours?,Q97_1
+accrue_1900_hours,Imagine that regulation for behavior analysis has been approved. How likely are you to spend the following amount of hours accruing the required experience and oversight to qualify to be part of the regulation body? - Would you spend 1900 hours?,Q99_1
+accrue_2000_hours,Imagine that regulation for behavior analysis has been approved. How likely are you to spend the following amount of hours accruing the required experience and oversight to qualify to be part of the regulation body? - Would you spend 2000 hours?,Q100_1
+accrue_2100_hours,Imagine that regulation for behavior analysis has been approved. How likely are you to spend the following amount of hours accruing the required experience and oversight to qualify to be part of the regulation body? - Would you spend 2100 hours?,Q101_1
+accrue_2200_hours,Imagine that regulation for behavior analysis has been approved. How likely are you to spend the following amount of hours accruing the required experience and oversight to qualify to be part of the regulation body? - Would you spend 2200 hours?,Q102_1
+accrue_2300_hours,Imagine that regulation for behavior analysis has been approved. How likely are you to spend the following amount of hours accruing the required experience and oversight to qualify to be part of the regulation body? - Would you spend 2300 hours?,Q103_1
+accrue_2400_hours,Imagine that regulation for behavior analysis has been approved. How likely are you to spend the following amount of hours accruing the required experience and oversight to qualify to be part of the regulation body? - Would you spend 2400 hours?,Q104_1
+accrue_2500_hours,Imagine that regulation for behavior analysis has been approved. How likely are you to spend the following amount of hours accruing the required experience and oversight to qualify to be part of the regulation body? - Would you spend 2500 hours?,Q105_1
+accrue_2600_hours,Imagine that regulation for behavior analysis has been approved. How likely are you to spend the following amount of hours accruing the required experience and oversight to qualify to be part of the regulation body? - Would you spend 2600 hours?,Q106_1
+accrue_2700_hours,Imagine that regulation for behavior analysis has been approved. How likely are you to spend the following amount of hours accruing the required experience and oversight to qualify to be part of the regulation body? - Would you spend 2700 hours?,Q107_1
+accrue_2800_hours,Imagine that regulation for behavior analysis has been approved. How likely are you to spend the following amount of hours accruing the required experience and oversight to qualify to be part of the regulation body? - Would you spend 2800 hours?,Q108_1
+accrue_2900_hours,Imagine that regulation for behavior analysis has been approved. How likely are you to spend the following amount of hours accruing the required experience and oversight to qualify to be part of the regulation body? - Would you spend 2900 hours?,Q109_1
+accrue_3000_hours,Imagine that regulation for behavior analysis has been approved. How likely are you to spend the following amount of hours accruing the required experience and oversight to qualify to be part of the regulation body? - Would you spend 3000 hours?,Q110_1
+max_hours,"Imagine that regulation for behaviour analysis has been approved in Ontario. What is the maximum amount of hours you are willing to accrue to meet the required experience and oversight to qualify to be part of the regulation body, with a 100% likelihood?",Q161

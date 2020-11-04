@@ -20,7 +20,7 @@ import matplotlib.pyplot as plt
 sys.path.append('/Users/davidjcox/Dropbox/Coding/Local Python Modules/')
 
 # Set path to data
-os.chdir('/Users/davidjcox/Dropbox/Projects/CurrentProjectManuscripts/Empirical/PersonalFun/Demand for Certification/')
+os.chdir('/Users/davidjcox/Dropbox/Projects/CurrentProjectManuscripts/Empirical/PersonalFun/Demand for Certification/Data/')
 
 # Change settings to view all columns of data
 pd.set_option('display.max_columns', None)
