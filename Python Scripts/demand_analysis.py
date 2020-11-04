@@ -15,6 +15,7 @@ import pandas as pd
 import numpy as np
 import sys
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 # Set path to local scripts
 sys.path.append('/Users/davidjcox/Dropbox/Coding/Local Python Modules/')
@@ -26,19 +27,16 @@ os.chdir('/Users/davidjcox/Dropbox/Projects/CurrentProjectManuscripts/Empirical/
 pd.set_option('display.max_columns', None)
 
 #%% Read in the data
-raw_data =pd.read_csv('Raw_Data.csv')
+raw_data =pd.read_csv('all_raw_data.csv')
 data = raw_data.copy()
 data.head()
 
-#%% Fill NaN vals from choices with 1
-cols_check = [ '0','25', '50','100','200','300','400','500','600','700','800','900','1000','1100','1200','1300',\
-               '1400','1500','1600','1700','1800','1900','2000','2100','2200','2300','2400','2500','2600','2700',\
-               '2800','2900','3000']
-
-for i in cols_check:
-    data[i] = data[i].fillna(0)
-
-data.head()
+#%% Subset cost cols for analysis
+cost_df = data[['cost_0', 'cost_25', 'cost_50', 'cost_100', 'cost_200', 'cost_300', 'cost_400', 'cost_500', 'cost_600', \
+              'cost_700', 'cost_800', 'cost_900', 'cost_1000', 'cost_1100', 'cost_1200', 'cost_1300', 'cost_1400', \
+              'cost_1500', 'cost_1600', 'cost_1700', 'cost_1800', 'cost_1900', 'cost_2000', 'cost_2100', 'cost_2200', \
+              'cost_2300', 'cost_2400', 'cost_2500', 'cost_2600', 'cost_2700', 'cost_2800', 'cost_2900', 'cost_3000']]
+cost_df.head()
 
 #%% Define the demand model to the median values
 from scipy.optimize import curve_fit
@@ -47,7 +45,24 @@ from sklearn.metrics import r2_score
 def demand(x, alpha):
     return 100*10**(3*np.exp(-alpha*100*x))
 
-#%% Fit demand equation to the data
+#%% Plot distributions of data
+
+for i in list(cost_df):
+    fig, ax = plt.subplots(figsize=(20, 20))
+    plt.hist(x=cost_df[i], color='k', alpha=0.8)
+    plt.xlabel('Likeilihood of Paying', fontsize=26)
+    plt.ylabel('Number of Participants', fontsize=26)
+    plt.xticks(fontsize=16)
+    plt.yticks(fontsize=16)
+    plt.title(i, fontsize=30)
+    plot_name = plt.savefig('%s_hist.png' %i, bbox_inches='tight')
+    plt.show()        
+
+#%% Fit demand equation to all data
+
+
+#%%
+
 
 #Subset data 
 data_fit = data[cols_check]
