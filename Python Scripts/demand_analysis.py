@@ -95,18 +95,41 @@ from scipy.optimize import curve_fit
 from sklearn.metrics import r2_score
 
 def demand(q, cost, alpha):
-    return 100*10**(3*np.exp(-alpha*100*x))
+    exp_val = -alpha*q*cost
+    exp_term = np.exp(exp_val)-1
+    power_val = 3*exp_term
+    predicted = q*(10**power_val)
+    return predicted
 
-#%% Fit demand equation to all data
+#%% Create datframes for fitting
+all_data_medians = []
+all_data_average = []
+for i in list(cost_df):
+    median = round(cost_df[i].median(), 4)
+    avg = round(cost_df[i].mean(), 4)
+    all_data_medians.append(median)
+    all_data_average.append(avg)
 
+only_complete_medians = []
+only_complete_average = []
+complete_df = cost_df.dropna(subset=['cost_0'])
+complete_df = complete_df.fillna(0)
+complete_df = complete_df[complete_df['cost_0']!=0]
+for i in list(complete_df):
+    median = round(complete_df[i].median(), 4)
+    avg = round(complete_df[i].mean(), 4)
+    only_complete_medians.append(median)
+    only_complete_average.append(avg)
 
-#%%
+imputed_medians= []
+imputed_averages = []
+from sklearn.impute import KNNImputer
+X = [[1, 2, np.nan], [3, 4, 3], [np.nan, 6, 5], [8, 8, 7]]
+imputer = KNNImputer(n_neighbors=2)
+imputer.fit_transform(X)
 
+#%% 
 
-#Subset data 
-data_fit = data[cols_check]
-cost = [1, 25, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, \
-        1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700, 2800, 2900, 3000]
 x = pd.array(cost, int)
 
 q_s = []
