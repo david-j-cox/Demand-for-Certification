@@ -38,13 +38,6 @@ cost_df = data[['cost_0', 'cost_25', 'cost_50', 'cost_100', 'cost_200', 'cost_30
               'cost_2300', 'cost_2400', 'cost_2500', 'cost_2600', 'cost_2700', 'cost_2800', 'cost_2900', 'cost_3000']]
 cost_df.head()
 
-#%% Define the demand model to the median values
-from scipy.optimize import curve_fit
-from sklearn.metrics import r2_score
-
-def demand(x, alpha):
-    return 100*10**(3*np.exp(-alpha*100*x))
-
 #%% Plot distributions of data
 for i in list(cost_df):
     fig, ax = plt.subplots(figsize=(20, 20))
@@ -75,6 +68,33 @@ plt.xticks(ticks=list(range(len(cost))), labels=cost, fontsize=24, rotation=90)
 plt.yticks(fontsize=30)
 plot_name = plt.savefig('swarmplots_cost.png', bbox_inches='tight')
 plt.show()  
+
+#%% Plot jitterplot
+fig, ax = plt.subplots(figsize=(30, 20))
+sns.stripplot(x=cost_df_long['cost'], y=cost_df_long['likelihood'], color='k')
+plt.xlabel('Cost in Canadian Dollars', fontsize=60, labelpad=(20))
+plt.ylabel('Likelihood of Paying', fontsize=60, labelpad=(20))
+plt.xticks(ticks=list(range(len(cost))), labels=cost, fontsize=24, rotation=90)
+plt.yticks(fontsize=30)
+plot_name = plt.savefig('jitterplots_cost.png', bbox_inches='tight')
+plt.show()
+
+#%% Plot violinplots
+fig, ax = plt.subplots(figsize=(30, 20))
+sns.stripplot(x=cost_df_long['cost'], y=cost_df_long['likelihood'], color='k')
+plt.xlabel('Cost in Canadian Dollars', fontsize=60, labelpad=(20))
+plt.ylabel('Likelihood of Paying', fontsize=60, labelpad=(20))
+plt.xticks(ticks=list(range(len(cost))), labels=cost, fontsize=24, rotation=90)
+plt.yticks(fontsize=30)
+plot_name = plt.savefig('violinplots_cost.png', bbox_inches='tight')
+plt.show()  
+
+#%% Define the demand model to the median values
+from scipy.optimize import curve_fit
+from sklearn.metrics import r2_score
+
+def demand(x, alpha):
+    return 100*10**(3*np.exp(-alpha*100*x))
 
 #%% Fit demand equation to all data
 
