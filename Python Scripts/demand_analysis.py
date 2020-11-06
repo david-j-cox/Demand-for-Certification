@@ -150,18 +150,27 @@ most_frequent_imputed_medians= get_med(most_frequent_imputed_df)
 most_frequent_imputed_averages = get_avg(most_frequent_imputed_df)
 
 #%% Save them all together
-all_medians = pd.DataFrame([['median', 'all', all_data_medians], \
-               ['median', 'knn', knn_imputed_medians], \
-               ['median', 'med', med_imputed_medians], \
-               ['median', 'avg', avg_imputed_medians], \
-               ['median', 'most_frequent', most_frequent_imputed_medians], \
-               ['mean', 'all', all_data_medians], \
-               ['mean', 'knn', knn_imputed_medians], \
-               ['mean', 'med', med_imputed_medians], \
-               ['mean', 'avg', avg_imputed_medians], \
-               ['mean', 'most_frequent', most_frequent_imputed_medians]])
+aggregates = ['median','median','median','median','median', 'mean', 'mean', 'mean', 'mean', 'mean']
+imputers = ['none', 'knn', 'med', 'avg', 'mode', 'none', 'knn', 'med', 'avg', 'mode']
 
-all_medians.columns = ['aggregation_method', 'impute_type', list(cost_df)]
+all_aggregates = pd.DataFrame([all_data_medians])
+all_aggregates = all_aggregates.append([knn_imputed_medians])
+all_aggregates = all_aggregates.append([med_imputed_medians])
+all_aggregates = all_aggregates.append([avg_imputed_medians])
+all_aggregates = all_aggregates.append([most_frequent_imputed_medians])
+all_aggregates = all_aggregates.append([all_data_medians])
+all_aggregates = all_aggregates.append([knn_imputed_medians])
+all_aggregates = all_aggregates.append([med_imputed_medians])
+all_aggregates = all_aggregates.append([avg_imputed_medians])
+all_aggregates = all_aggregates.append([most_frequent_imputed_medians])
+all_aggregates['aggregation_method'] = aggregates
+all_aggregates['impute_type'] = imputers
+
+cols = list(cost_df)
+cols = cols.append('aggregation_method')
+cols = cols.append('impute_type')
+    
+all_aggregates = pd.DataFrame(all_aggregates, columns=cols)
 
 #%% 
 from scipy.optimize import curve_fit
