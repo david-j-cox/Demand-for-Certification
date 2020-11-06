@@ -90,10 +90,7 @@ plt.ylim(0, 100)
 plot_name = plt.savefig('violinplots_cost.png', bbox_inches='tight')
 plt.show()  
 
-#%% Define the demand model to the median values
-from scipy.optimize import curve_fit
-from sklearn.metrics import r2_score
-
+#%% Define the demand model
 def demand(q, cost, alpha):
     exp_val = -alpha*q*cost
     exp_term = np.exp(exp_val)-1
@@ -102,6 +99,7 @@ def demand(q, cost, alpha):
     return predicted
 
 #%% Create datframes for fitting
+# Medians and averages using all the data as is 
 all_data_medians = []
 all_data_average = []
 for i in list(cost_df):
@@ -110,25 +108,32 @@ for i in list(cost_df):
     all_data_medians.append(median)
     all_data_average.append(avg)
 
-only_complete_medians = []
-only_complete_average = []
-complete_df = cost_df.dropna(subset=['cost_0'])
-complete_df = complete_df.fillna(0)
-complete_df = complete_df[complete_df['cost_0']!=0]
-for i in list(complete_df):
-    median = round(complete_df[i].median(), 4)
-    avg = round(complete_df[i].mean(), 4)
-    only_complete_medians.append(median)
-    only_complete_average.append(avg)
-
-imputed_medians= []
-imputed_averages = []
+# Medians and averages after imputing missing values using k-Nearest Neighbors
+knn_imputed_medians= []
+knn_imputed_averages = []
 from sklearn.impute import KNNImputer
-X = [[1, 2, np.nan], [3, 4, 3], [np.nan, 6, 5], [8, 8, 7]]
 imputer = KNNImputer(n_neighbors=2)
-imputer.fit_transform(X)
+knn_imputed_df = imputer.fit_transform(cost_df)
+for i in list(knn_imputed_df):
+    median - round(knn_imputed_df[i].median(), 4)
+    avg = round(knn_imputed_df[i].median(), 4)
+    knn_imputed_medians.append(median)
+    knn_imputed_averages.append(avg)
+
+## Medians and averages after imputing missing values using median val
+med_imputed_medians= []
+med_imputed_averages = []
+imputer = KNNImputer(n_neighbors=2)
+knn_imputed_df = imputer.fit_transform(cost_df)
+for i in list(knn_imputed_df):
+    median - round(knn_imputed_df[i].median(), 4)
+    avg = round(knn_imputed_df[i].median(), 4)
+    knn_imputed_medians.append(median)
+    knn_imputed_averages.append(avg)
 
 #%% 
+from scipy.optimize import curve_fit
+from sklearn.metrics import r2_score
 
 x = pd.array(cost, int)
 
