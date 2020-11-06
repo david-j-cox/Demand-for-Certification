@@ -1,0 +1,7 @@
+﻿table_name,ncols,primary_key,fk_01,fk_02
+audit,511+,audit_number,org_id,
+employees,18,employee_id,org_id,
+organizations,15,org_id,n/a,
+assessment,106+,patient_email,org_id,
+employee_survey,,employee_email,org_id,audit_id
+patient_survey,,patient_email,org_id,audit_id
