@@ -121,6 +121,7 @@ all_data_average = get_avg(cost_df)
 from sklearn.impute import KNNImputer
 imputer = KNNImputer(n_neighbors=2)
 knn_imputed_df = imputer.fit_transform(cost_df)
+knn_imputed_df = pd.DataFrame(knn_imputed_df, columns=list(cost_df))
 knn_imputed_medians= get_med(knn_imputed_df)
 knn_imputed_averages = get_avg(knn_imputed_df)
 
@@ -128,6 +129,7 @@ knn_imputed_averages = get_avg(knn_imputed_df)
 from sklearn.impute import SimpleImputer
 imp_median = SimpleImputer(missing_values=np.nan, strategy='median')
 med_imputed_df = imp_median.fit_transform(cost_df)
+med_imputed_df = pd.DataFrame(med_imputed_df, columns=list(cost_df))
 med_imputed_medians= get_med(med_imputed_df)
 med_imputed_averages = get_avg(med_imputed_df)
 
@@ -135,6 +137,7 @@ med_imputed_averages = get_avg(med_imputed_df)
 from sklearn.impute import SimpleImputer
 imp_mean = SimpleImputer(missing_values=np.nan, strategy='mean')
 avg_imputed_df = imp_mean.fit_transform(cost_df)
+avg_imputed_df = pd.DataFrame(avg_imputed_df, columns = list(cost_df))
 avg_imputed_medians= get_med(avg_imputed_df)
 avg_imputed_averages = get_avg(avg_imputed_df)
 
@@ -142,8 +145,23 @@ avg_imputed_averages = get_avg(avg_imputed_df)
 from sklearn.impute import SimpleImputer
 imp_most_frequent = SimpleImputer(missing_values=np.nan, strategy='most_frequent')
 most_frequent_imputed_df = imp_mean.fit_transform(cost_df)
+most_frequent_imputed_df = pd.DataFrame(most_frequent_imputed_df, columns = list(cost_df))
 most_frequent_imputed_medians= get_med(most_frequent_imputed_df)
 most_frequent_imputed_averages = get_avg(most_frequent_imputed_df)
+
+#%% Save them all together
+all_medians = pd.DataFrame([['median', 'all', all_data_medians], \
+               ['median', 'knn', knn_imputed_medians], \
+               ['median', 'med', med_imputed_medians], \
+               ['median', 'avg', avg_imputed_medians], \
+               ['median', 'most_frequent', most_frequent_imputed_medians], \
+               ['mean', 'all', all_data_medians], \
+               ['mean', 'knn', knn_imputed_medians], \
+               ['mean', 'med', med_imputed_medians], \
+               ['mean', 'avg', avg_imputed_medians], \
+               ['mean', 'most_frequent', most_frequent_imputed_medians]])
+
+all_medians.columns = ['aggregation_method', 'impute_type', list(cost_df)]
 
 #%% 
 from scipy.optimize import curve_fit
