@@ -99,37 +99,51 @@ def demand(q, cost, alpha):
     return predicted
 
 #%% Create datframes for fitting
+def get_med(df):
+    med_list = []
+    for i in list(df):
+        median = round(df[i].median(), 4)
+        med_list.append(median)
+    return med_list
+
+def get_avg(df):
+    avg_list = []
+    for i in list(df):
+        avg= round(df[i].mean(), 4)
+        avg_list.append(avg)
+    return avg_list
+
 # Medians and averages using all the data as is 
-all_data_medians = []
-all_data_average = []
-for i in list(cost_df):
-    median = round(cost_df[i].median(), 4)
-    avg = round(cost_df[i].mean(), 4)
-    all_data_medians.append(median)
-    all_data_average.append(avg)
+all_data_medians = get_med(cost_df)
+all_data_average = get_avg(cost_df)
 
 # Medians and averages after imputing missing values using k-Nearest Neighbors
-knn_imputed_medians= []
-knn_imputed_averages = []
 from sklearn.impute import KNNImputer
 imputer = KNNImputer(n_neighbors=2)
 knn_imputed_df = imputer.fit_transform(cost_df)
-for i in list(knn_imputed_df):
-    median - round(knn_imputed_df[i].median(), 4)
-    avg = round(knn_imputed_df[i].median(), 4)
-    knn_imputed_medians.append(median)
-    knn_imputed_averages.append(avg)
+knn_imputed_medians= get_med(knn_imputed_df)
+knn_imputed_averages = get_avg(knn_imputed_df)
 
 ## Medians and averages after imputing missing values using median val
-med_imputed_medians= []
-med_imputed_averages = []
-imputer = KNNImputer(n_neighbors=2)
-knn_imputed_df = imputer.fit_transform(cost_df)
-for i in list(knn_imputed_df):
-    median - round(knn_imputed_df[i].median(), 4)
-    avg = round(knn_imputed_df[i].median(), 4)
-    knn_imputed_medians.append(median)
-    knn_imputed_averages.append(avg)
+from sklearn.impute import SimpleImputer
+imp_median = SimpleImputer(missing_values=np.nan, strategy='median')
+med_imputed_df = imp_median.fit_transform(cost_df)
+med_imputed_medians= get_med(med_imputed_df)
+med_imputed_averages = get_avg(med_imputed_df)
+
+## Medians and averages after imputing missing values using average val
+from sklearn.impute import SimpleImputer
+imp_mean = SimpleImputer(missing_values=np.nan, strategy='mean')
+avg_imputed_df = imp_mean.fit_transform(cost_df)
+avg_imputed_medians= get_med(avg_imputed_df)
+avg_imputed_averages = get_avg(avg_imputed_df)
+
+## Medians and averages after imputing missing values using most_frequent val
+from sklearn.impute import SimpleImputer
+imp_most_frequent = SimpleImputer(missing_values=np.nan, strategy='most_frequent')
+most_frequent_imputed_df = imp_mean.fit_transform(cost_df)
+most_frequent_imputed_medians= get_med(most_frequent_imputed_df)
+most_frequent_imputed_averages = get_avg(most_frequent_imputed_df)
 
 #%% 
 from scipy.optimize import curve_fit
