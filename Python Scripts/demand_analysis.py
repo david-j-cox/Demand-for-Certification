@@ -38,7 +38,10 @@ cost_df = data[['cost_0', 'cost_25', 'cost_50', 'cost_100', 'cost_200', 'cost_30
               'cost_2300', 'cost_2400', 'cost_2500', 'cost_2600', 'cost_2700', 'cost_2800', 'cost_2900', 'cost_3000']]
 cost_df.head()
 
-#%% Plot distributions of data
+#%%####################################################################################################################
+# EXMPLORING WHAT THE DATA LOOKS LIKE
+########################################################################################################################
+# Plot distributions of data
 for i in list(cost_df):
     fig, ax = plt.subplots(figsize=(20, 20))
     plt.hist(x=cost_df[i], color='k', alpha=0.8)
@@ -50,7 +53,7 @@ for i in list(cost_df):
     plot_name = plt.savefig('%s_hist.png' %i, bbox_inches='tight')
     plt.show()     
 
-#%% Reshape data to long form for swarmplots
+# Reshape data to long form for swarmplots
 cost_df_long = cost_df.stack()
 cost_df_long = cost_df_long.reset_index()
 cost_df_long.columns = ['participant', 'cost', 'likelihood']
@@ -59,7 +62,7 @@ cost_df_long.to_csv('all_data_long.csv')
 cost = [0, 25, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, \
         1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700, 2800, 2900, 3000]
 
-#%% Plot swarmplots
+# Plot swarmplots
 fig, ax = plt.subplots(figsize=(30, 20))
 sns.swarmplot(x=cost_df_long['cost'], y=cost_df_long['likelihood'], color='k')
 plt.xlabel('Cost in Canadian Dollars', fontsize=60, labelpad=(20))
@@ -69,7 +72,7 @@ plt.yticks(fontsize=30)
 plot_name = plt.savefig('swarmplots_cost.png', bbox_inches='tight')
 plt.show()  
 
-#%% Plot jitterplot
+# Plot jitterplot
 fig, ax = plt.subplots(figsize=(30, 20))
 sns.stripplot(x=cost_df_long['cost'], y=cost_df_long['likelihood'], color='k')
 plt.xlabel('Cost in Canadian Dollars', fontsize=60, labelpad=(20))
@@ -79,7 +82,7 @@ plt.yticks(fontsize=30)
 plot_name = plt.savefig('jitterplots_cost.png', bbox_inches='tight')
 plt.show()
 
-#%% Plot violinplots
+# Plot violinplots
 fig, ax = plt.subplots(figsize=(30, 20))
 sns.violinplot(x=cost_df_long['cost'], y=cost_df_long['likelihood'], color='k')
 plt.xlabel('Cost in Canadian Dollars', fontsize=60, labelpad=(20))
@@ -90,15 +93,10 @@ plt.ylim(0, 100)
 plot_name = plt.savefig('violinplots_cost.png', bbox_inches='tight')
 plt.show()  
 
-#%% Define the demand model
-def demand(q, cost, alpha):
-    exp_val = -alpha*q*cost
-    exp_term = np.exp(exp_val)-1
-    power_val = 3*exp_term
-    predicted = q*(10**power_val)
-    return predicted
-
-#%% Create datframes for fitting
+#%%####################################################################################################################
+# CREATE THE DATAFRAMES FOR FITTING
+########################################################################################################################
+# Create datframes for fitting
 def get_med(df):
     med_list = []
     for i in list(df):
@@ -149,10 +147,11 @@ most_frequent_imputed_df = pd.DataFrame(most_frequent_imputed_df, columns = list
 most_frequent_imputed_medians= get_med(most_frequent_imputed_df)
 most_frequent_imputed_averages = get_avg(most_frequent_imputed_df)
 
-#%% Save them all together
+# Create lists to label the different aggregates as we reate a single df
 aggregates = ['median','median','median','median','median', 'mean', 'mean', 'mean', 'mean', 'mean']
 imputers = ['none', 'knn', 'med', 'avg', 'mode', 'none', 'knn', 'med', 'avg', 'mode']
 
+# Create the single df of all aggregates
 all_aggregates = pd.DataFrame([all_data_medians])
 all_aggregates = all_aggregates.append([knn_imputed_medians])
 all_aggregates = all_aggregates.append([med_imputed_medians])
@@ -166,24 +165,45 @@ all_aggregates = all_aggregates.append([most_frequent_imputed_medians])
 all_aggregates['aggregation_method'] = aggregates
 all_aggregates['impute_type'] = imputers
 
+# Create and add the column labelsto the df
 cols = list(cost_df)
-cols = cols.append('aggregation_method')
-cols = cols.append('impute_type')
-    
-all_aggregates = pd.DataFrame(all_aggregates, columns=cols)
+cols.insert(len(cols), 'aggregation_method')
+cols.insert(len(cols), 'impute_type')
+all_aggregates.columns = cols
 
-#%% 
+# Save it to a .csv
+all_aggregates.to_csv('all_aggregates.csv')
+
+#%%#####################################################################################################################
+# FIT THE DEMAND MODEL TO AGGREGATED VALUES
+########################################################################################################################
+
+#%% Define the demand model
+def demand(q, cost, alpha):
+    exp_val = -alpha*q*cost
+    exp_term = np.exp(exp_val)-1
+    power_val = 3*exp_term
+    predicted = q*(10**power_val)
+    return predicted
+
+#%% Fit the model
 from scipy.optimize import curve_fit
 from sklearn.metrics import r2_score
 
+# Subest out just the likelihood vals
+data_fit = all_aggregates.iloc[:, :-2]
+
+# Define our costs
 x = pd.array(cost, int)
 
+# Lists to store fit params
 q_s = []
 a_s = []
 r2_vals = []
 
-for i in list(range(len(data_fit))):
-    likelihood = data_fit.loc[i]
+# Fit the model
+for i in range(len(data_fit)):
+    likelihood = data_fit.iloc[i]
     y = pd.array(likelihood, int)
     c, cov = curve_fit(demand, x, y)
     preds = demand(x, *c)
@@ -196,17 +216,6 @@ for i in list(range(len(data_fit))):
 estimated_params = pd.DataFrame(q_s)
 esrtimated_params = pd.concat([k_s, a_s, r2_vals], axis=1)
 estimated_params
-
-#%% 
-med_vals = []
-
-for i in list(data_fit):
-    med = round(data_fit[i].mean(), 4)
-    med_vals.append(med)
-
-#%% 
-med_vals_logged = np.log(med_vals)
-costs_logged = np.log(cost)
 
 #%% Predicted values
 from pandas import Series
