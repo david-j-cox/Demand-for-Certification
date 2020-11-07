@@ -157,11 +157,11 @@ all_aggregates = all_aggregates.append([knn_imputed_medians])
 all_aggregates = all_aggregates.append([med_imputed_medians])
 all_aggregates = all_aggregates.append([avg_imputed_medians])
 all_aggregates = all_aggregates.append([most_frequent_imputed_medians])
-all_aggregates = all_aggregates.append([all_data_medians])
-all_aggregates = all_aggregates.append([knn_imputed_medians])
-all_aggregates = all_aggregates.append([med_imputed_medians])
-all_aggregates = all_aggregates.append([avg_imputed_medians])
-all_aggregates = all_aggregates.append([most_frequent_imputed_medians])
+all_aggregates = all_aggregates.append([all_data_average])
+all_aggregates = all_aggregates.append([knn_imputed_averages])
+all_aggregates = all_aggregates.append([med_imputed_averages])
+all_aggregates = all_aggregates.append([avg_imputed_averages])
+all_aggregates = all_aggregates.append([most_frequent_imputed_averages])
 all_aggregates['aggregation_method'] = aggregates
 all_aggregates['impute_type'] = imputers
 
